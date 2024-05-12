@@ -10,6 +10,7 @@ import (
 	"net/url"
 	"strconv"
 	"strings"
+	"time"
 	"unsafe"
 )
 
@@ -65,8 +66,8 @@ func HY2_GetProxyPorts(handler C.ulonglong, http_listen_port *C.int, socks5_list
 	return 0
 }
 
-//export HY2_Uninit
-func HY2_Uninit(handler C.ulonglong) int {
+//export HY2_UnInit
+func HY2_UnInit(handler C.ulonglong) int {
 	hy2_client := (*HY2Client)(unsafe.Pointer(uintptr(handler)))
 	(*hy2_client.client).Close()
 	(*hy2_client.socks5_server).Close()
@@ -88,5 +89,6 @@ func XYQ_GetPlayUrl(hy2_play_url *C.char, result *C.char) C.ulonglong {
 }
 
 func main() {
-	//fmt.Println(get_play_url("hy2://xxxxx:1234/free.9528.eu.org:9529/stream/hk/test/master.m3u8?u=admin&p=70db29aeaebf312fd2b93d3d69d99a16ad3319d0b354567f2be5c5e91c6be18b", -1, -1))
+	fmt.Println(get_play_url("hy2://idhLuAuSjmU3aZmC9JiFmWoF:8092@free.9528.eu.org:9529/stream/hk/test/master.m3u8?u=admin&p=70db29aeaebf312fd2b93d3d69d99a16ad3319d0b354567f2be5c5e91c6be18b", -1, -1))
+	time.Sleep(30 * time.Second)
 }

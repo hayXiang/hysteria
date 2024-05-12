@@ -469,3 +469,6 @@ $RECYCLE.BIN/
 
 # End of https://www.toptal.com/developers/gitignore/api/goland+all,intellij+all,go,windows,linux,macos,python,pycharm+all
 libhy2/libhy2
+libhy2/libhy2_arm.h
+libhy2/libhy2_arm64.h
+libhy2/libhy2_linux.h
